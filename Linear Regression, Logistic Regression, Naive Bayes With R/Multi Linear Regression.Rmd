@@ -1,0 +1,38 @@
+---
+title: "Multi Linear Regression"
+output: html_document
+---
+
+"Library AppliedPredictiveModeling (Kasusnya tentang Abalone)"
+
+```{r}
+head(abalone)
+```
+
+```{r}
+abalone$Height = ifelse(abalone$Diameter==0.365, "0.095","0,125")
+fit <- lm(LongestShell~WholeWeight+Height, data = abalone)
+summary(fit)
+```
+
+```{r}
+library(predict3d)
+```
+
+
+```{r}
+ggPredict(fit)
+```
+```{r}
+ggPredict(fit, show.error = TRUE, facet.modx = TRUE, show.text = FALSE)
+```
+
+
+
+
+
+
+
+
+
+

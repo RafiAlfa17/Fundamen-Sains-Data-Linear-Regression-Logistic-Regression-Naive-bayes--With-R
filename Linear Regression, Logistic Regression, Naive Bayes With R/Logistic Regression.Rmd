@@ -1,0 +1,36 @@
+---
+title: "Logistic regression"
+output: html_document
+df_print: paged
+---
+
+"Library AppliedPredictiveModeling (Kasusnya tentang Abalone)"
+
+```{r}
+attach(abalone)
+head(abalone)
+```
+
+
+```{r}
+dt <- subset(abalone, select = c(LongestShell, Diameter, WholeWeight))
+dt
+```
+
+
+```{r}
+fit <- glm(formula = Diameter ~ LongestShell, data = abalone, family = binomial)
+summary (fit)
+```
+
+```{r}
+library(ggplot2)
+```
+
+Plotting
+
+```{r}
+ggplot(dt, aes(x=LongestShell, y=Diameter)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+```
+

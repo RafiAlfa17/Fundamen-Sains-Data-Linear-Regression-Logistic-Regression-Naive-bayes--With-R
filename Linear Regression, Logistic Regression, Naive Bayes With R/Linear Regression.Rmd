@@ -1,0 +1,32 @@
+---
+title: "Linear Regression"
+output: html_document
+---
+
+"Library AppliedPredictiveModeling (Kasusnya tentang Abalone)"
+
+```{r}
+attach(abalone)
+str(abalone)
+```
+
+
+```{r}
+head(abalone)
+```
+
+
+```{r}
+linear_model <- lm(LongestShell ~ Diameter,data = abalone)
+linear_model
+```
+LongestShell = 0.03691 + 1.19417*Diameter
+```{r}
+summary(linear_model)
+```
+
+```{r}
+plot(abalone)
+abline(linear_model, col = 'blue')
+```
+
